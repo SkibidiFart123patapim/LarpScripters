@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="LarpScripts — discover, browse, and copy community scripts.">
+  <title>LarpScripts — Script Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="LarpScripts home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>Larp<span class="green">Scripts</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home"><span class="nav-icon">⌂</span> Home</a>
+        <a class="nav-link" href="#library"><span class="nav-icon">▤</span> Library</a>
+        <a class="nav-link" href="#about"><span class="nav-icon">ⓘ</span> About</a>
+      </nav>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">YOUR LIBRARY</p>
+        <a class="nav-link" href="#featured"><span class="nav-icon">✦</span> Featured</a>
+        <a class="nav-link" href="#recent"><span class="nav-icon">◷</span> Recently added</a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <span class="note-dot"></span>
+          <div><strong>Open library</strong><small>No account required</small></div>
+        </div>
+        <p class="copyright">© <span id="year"></span> LarpScripts</p>
+      </div>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <div class="history-buttons" aria-label="Page controls">
+          <button class="circle-btn" type="button" onclick="history.back()" aria-label="Go back">‹</button>
+          <button class="circle-btn" type="button" onclick="history.forward()" aria-label="Go forward">›</button>
+        </div>
+        <div class="topbar-actions">
+          <a class="discord-link" href="https://discord.com/" target="_blank" rel="noopener noreferrer">Community ↗</a>
+          <span class="public-pill"><span></span> PUBLIC ACCESS</span>
+        </div>
+      </header>
+
+      <section class="hero" id="featured">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> THE COMMUNITY SCRIPT HUB</p>
+          <h1>Discover<br><span>Scripts.</span></h1>
+          <p class="hero-description">Your scripts. Your library. Your hub.<br>Browse useful snippets and copy what you need.</p>
+          <a class="primary-button" href="#library"><span>▤</span> Explore library</a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="hero-code-card">
+            <div class="window-dots"><i></i><i></i><i></i><span>example.lua</span></div>
+            <div class="fake-code">
+              <p><b>01</b> <span class="code-purple">local</span> <span class="code-blue">LarpScripts</span> = {</p>
+              <p><b>02</b> &nbsp;&nbsp;library = <span class="code-green">"open"</span>,</p>
+              <p><b>03</b> &nbsp;&nbsp;community = <span class="code-green">true</span></p>
+              <p><b>04</b> }</p>
+              <p><b>05</b> <span class="code-blue">print</span>(<span class="code-green">"Welcome!"</span>)<span class="cursor"></span></p>
+            </div>
+            <div class="code-card-footer"><span class="live-dot"></span> LUA SNIPPET <span>01 / 05</span></div>
+          </div>
+          <div class="floating-chip"> <span>✦</span> Curated scripts</div>
+        </div>
+      </section>
+
+      <section class="content-section" id="library">
+        <div class="section-heading">
+          <div><p class="eyebrow">BROWSE COLLECTION</p><h2>Popular scripts</h2></div>
+          <span class="muted-count" id="script-count">3 SCRIPTS</span>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="search-input" type="search" placeholder="Search scripts..." autocomplete="off">
+          </label>
+          <div class="filter-buttons" aria-label="Filter scripts">
+            <button class="filter-btn selected" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Utility">Utility</button>
+            <button class="filter-btn" data-filter="Example">Example</button>
+          </div>
+        </div>
+
+        <div class="script-grid" id="script-grid">
+          <article class="script-card" data-category="Example" data-search="hello world starter lua example">
+            <div class="card-topline"><span class="category-tag">EXAMPLE</span><span class="card-symbol">⌘</span></div>
+            <h3>Hello World</h3>
+            <p class="card-description">A simple Lua starter snippet to test your setup.</p>
+            <div class="card-meta"><span> LUA</span><span>•</span><span>BEGINNER</span></div>
+            <div class="code-panel">
+              <div class="code-panel-head"><span>hello_world.lua</span><button class="copy-btn" data-copy="print(&quot;Hello from LarpScripts!&quot;)">Copy code <span>▢</span></button></div>
+              <pre><code><span class="lua-blue">print</span>(<span class="lua-green">"Hello from LarpScripts!"</span>)</code></pre>
+            </div>
+          </article>
+
+          <article class="script-card" data-category="Utility" data-search="table loop utility lua">
+            <div class="card-topline"><span class="category-tag">UTILITY</span><span class="card-symbol">⌘</span></div>
+            <h3>Table Iterator</h3>
+            <p class="card-description">A small example showing how to loop through a Lua table.</p>
+            <div class="card-meta"><span> LUA</span><span>•</span><span>BEGINNER</span></div>
+            <div class="code-panel">
+              <div class="code-panel-head"><span>table_iterator.lua</span><button class="copy-btn" data-copy="local items = {&quot;one&quot;, &quot;two&quot;, &quot;three&quot;}\n\nfor index, item in ipairs(items) do\n    print(index, item)\nend">Copy code <span>▢</span></button></div>
+              <pre><code><span class="lua-purple">local</span> items = {<span class="lua-green">"one"</span>, <span class="lua-green">"two"</span>, <span class="lua-green">"three"</span>}
+
+<span class="lua-purple">for</span> index, item <span class="lua-purple">in</span> <span class="lua-blue">ipairs</span>(items) <span class="lua-purple">do</span>
+    <span class="lua-blue">print</span>(index, item)
+<span class="lua-purple">end</span></code></pre>
+            </div>
+          </article>
+
+          <article class="script-card" data-category="Example" data-search="function greeting example lua">
+            <div class="card-topline"><span class="category-tag">EXAMPLE</span><span class="card-symbol">⌘</span></div>
+            <h3>Greeting Function</h3>
+            <p class="card-description">A reusable function that returns a friendly greeting.</p>
+            <div class="card-meta"><span> LUA</span><span>•</span><span>BEGINNER</span></div>
+            <div class="code-panel">
+              <div class="code-panel-head"><span>greeting.lua</span><button class="copy-btn" data-copy="local function greet(name)\n    return &quot;Hello, &quot; .. name .. &quot;!&quot;\nend\n\nprint(greet(&quot;developer&quot;))">Copy code <span>▢</span></button></div>
+              <pre><code><span class="lua-purple">local function</span> <span class="lua-blue">greet</span>(name)
+    <span class="lua-purple">return</span> <span class="lua-green">"Hello, "</span> .. name .. <span class="lua-green">"!"</span>
+<span class="lua-purple">end</span>
+
+<span class="lua-blue">print</span>(<span class="lua-blue">greet</span>(<span class="lua-green">"developer"</span>))</code></pre>
+            </div>
+          </article>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>No scripts found. Try another search.</p>
+      </section>
+
+      <section class="about-section" id="about">
+        <div><p class="eyebrow">ABOUT THE PROJECT</p><h2>A hub built for sharing.</h2></div>
+        <p>LarpScripts is a simple public library for sharing code snippets. No login, no registration — just browse, read, and copy. Always review code before running it.</p>
+      </section>
+
+      <footer class="footer" id="recent">
+        <span>Made for the scripting community.</span>
+        <a href="#home">Back to top ↑</a>
+      </footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite">Code copied!</div>
+  <script src="script.js"></script>
+</body>
+</html>
